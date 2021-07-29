@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <site name="Site" state="1" siteResourcesPackageKey="NeosExampleJsonApi.Site" siteNodeName="site">
+  <nodes formatVersion="2.0">
+   <node identifier="f676459d-ca77-44bc-aeea-44114814c279" nodeName="site">
+    <variant sortingIndex="100" workspace="live" nodeType="NeosExampleJsonApi.Site:Document.HomePage" version="1" removed="" hidden="" hiddenInIndex="">
+     <dimensions/>
+     <accessRoles __type="array"/>
+     <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</creationDateTime>
+     <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</lastModificationDateTime>
+     <properties>
+      <title __type="string">Home</title>
+      <uriPathSegment __type="string">home</uriPathSegment>
+     </properties>
+    </variant>
+    <node identifier="6c302e0e-1d54-4697-a7ec-88d4e0d010cf" nodeName="main">
+     <variant sortingIndex="100" workspace="live" nodeType="Neos.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
+      <dimensions/>
+      <accessRoles __type="array"/>
+      <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</creationDateTime>
+      <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</lastModificationDateTime>
+      <properties/>
+     </variant>
+    </node>
+   </node>
+  </nodes>
+ </site>
+</root>

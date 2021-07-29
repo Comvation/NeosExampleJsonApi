@@ -1,0 +1,26 @@
+FROM php:7.4-cli
+
+RUN apt-get update \
+    # install GD
+	&& apt-get install -y \
+	        libfreetype6-dev libjpeg62-turbo-dev libpng-dev libicu-dev gcc g++ --no-install-recommends \
+	&& docker-php-ext-configure gd --with-freetype --with-jpeg \
+	&& docker-php-ext-install -j$(nproc) gd \
+    # pdo_mysql
+    && docker-php-ext-install pdo_mysql \
+    # redis
+    && pecl install redis && docker-php-ext-enable redis \
+	# intl
+	&& docker-php-ext-configure intl && docker-php-ext-install intl \
+    # cleanup
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+EXPOSE 8081
+
+# copy everything in the project into the container. This is what
+# makes this image so fast!
+COPY . /app
+
+# start the dev server
+CMD [ "./flow", "server:run", "--host", "0.0.0.0" ]

@@ -1,0 +1,16 @@
+#
+# JSON API routes
+#
+
+-
+  name:  'JSON View'
+  uriPattern: '{node}.json'
+  defaults:
+    '@package':    'Neos.Neos'
+    '@controller': 'Frontend\Node'
+    '@action':     'show'
+    '@format':     'json'
+  routeParts:
+    'node':
+      handler:     'Neos\Neos\Routing\FrontendNodeRoutePartHandlerInterface'
+  appendExceedingArguments: true

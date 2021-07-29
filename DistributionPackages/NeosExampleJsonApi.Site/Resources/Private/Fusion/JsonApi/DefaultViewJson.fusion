@@ -1,0 +1,6 @@
+prototype(NeosExampleJsonApi.Site:DefaultView.Json) < prototype(Neos.Fusion:Component) {
+    renderer = Neos.Fusion:DataStructure {
+        nodeId = ${node.identifier}
+        nodeType = ${q(node).property('_nodeType.name')}
+    }
+}

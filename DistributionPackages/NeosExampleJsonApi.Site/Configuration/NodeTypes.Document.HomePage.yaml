@@ -1,0 +1,29 @@
+
+'NeosExampleJsonApi.Site:Document.HomePage':
+  superTypes:
+    'NeosExampleJsonApi.Site:Document.AbstractPage': true
+    'NeosExampleJsonApi.Site:Constraint.Document.Restricted': true
+    'NeosExampleJsonApi.Site:Mixin.InspectorGeneral': true
+  ui:
+    label: i18n
+    icon: icon-globe
+  properties:
+    footerInfo:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            formatting:
+              a: true
+            placeholder: i18n
+    footerItems:
+      type: references
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: general
+          editorOptions:
+            nodeTypes:
+              - 'Neos.Neos:Document'

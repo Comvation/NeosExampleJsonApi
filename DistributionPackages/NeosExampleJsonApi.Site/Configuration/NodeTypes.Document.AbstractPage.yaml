@@ -1,0 +1,14 @@
+'NeosExampleJsonApi.Site:Document.AbstractPage':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Document': true
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          'NeosExampleJsonApi.Site:Constraint.Content.Restricted': false
+  constraints:
+    nodeTypes:
+      'NeosExampleJsonApi.Site:Document.HomePage': false
+      'NeosExampleJsonApi.Site:Constraint.Document.Restricted': false

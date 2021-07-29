@@ -1,0 +1,26 @@
+{
+  "name": "comvation/site-skeleton-template",
+  "description": "Best practice skeleton for Neos based on CodeQ.Site package.",
+  "config": {
+    "vendor-dir": "Packages/Libraries",
+    "bin-dir": "bin",
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "require": {
+    "neosexamplejsonapi/site": "dev-master"
+  },
+  "repositories": {
+    "distribution": {
+      "type": "path",
+      "url": "./DistributionPackages/*"
+    }
+  },
+  "scripts": {
+    "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+    "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+    "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+    "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+  }
+}

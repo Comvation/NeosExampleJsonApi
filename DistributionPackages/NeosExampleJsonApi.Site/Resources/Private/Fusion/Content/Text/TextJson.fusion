@@ -1,0 +1,6 @@
+prototype(NeosExampleJsonApi.Site:Content.Text.Json) < prototype(Neos.Neos:ContentComponent) {
+    renderer = Neos.Fusion:DataStructure {
+        nodeType = ${q(node).property('_nodeType.name')}
+        text = ${q(node).property('text')}
+    }
+}

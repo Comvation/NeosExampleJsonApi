@@ -1,0 +1,9 @@
+prototype(NeosExampleJsonApi.Site:Component.DefaultLayout) < prototype(Neos.Fusion:Component) {
+    content = ''
+
+    renderer = afx`
+        <NeosExampleJsonApi.Site:Component.Header />
+        {props.content}
+        <NeosExampleJsonApi.Site:Component.Footer />
+    `
+}

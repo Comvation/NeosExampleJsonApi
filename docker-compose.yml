@@ -1,0 +1,36 @@
+services:
+  # Neos CMS
+  neos:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      FLOW_CONTEXT: 'Development/Docker'
+    volumes:
+      - ./php-custom.ini:/usr/local/etc/php/conf.d/php.ini
+      - ./composer.json:/app/composer.json:cached
+      - ./composer.lock:/app/composer.lock:cached
+      - ./Configuration/:/app/Configuration/:cached
+      - ./DistributionPackages/:/app/DistributionPackages/:rw
+      - ./DistributionPackages/NeosExampleJsonApi.Site/:/app/Packages/Sites/NeosExampleJsonApi.Site:cached
+      # if you work on other packages, you need to add them here.
+
+      # WARNING: you need to add all packages from Distribution packages here ONE BY ONE, see the notice below for explanation.
+      - ./Packages/Sites/:/app/Packages/Sites/:cached
+    ports:
+      - 8081:8081
+  # DB
+  db:
+    image: mariadb:10.5
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-db}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-neos_dev}
+    volumes:
+      - db:/var/lib/mysql
+      - ./setup/db:/docker-entrypoint-initdb.d
+    ports:
+      - 13306:3306
+
+volumes:
+  db:

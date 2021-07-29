@@ -1,0 +1,21 @@
+
+##
+# This prototypes object are sequenctially rendered as strings
+# and output to form the the html response.
+#
+# For all the base data, see Neos.Neos:Page
+##
+prototype(NeosExampleJsonApi.Site:Document.AbstractPage) < prototype(Neos.Neos:Page) {
+    head {
+        headTags = Neos.Fusion:Component {
+            renderer = afx`
+                <meta http-equiv="x-ua-compatible" content="ie=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            `
+        }
+    }
+    body = NeosExampleJsonApi.Site:Component.DefaultLayout {
+        content = ''
+        @process.normalize = CodeQ.UnicodeNormalizer:Normalizer
+    }
+}

@@ -1,0 +1,71 @@
+prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Component) {
+    renderer = Neos.Fusion:DataStructure {
+        nodeId = ${node.identifier}
+        nodePath = ${q(node).property('_path')}
+        nodeUri = Neos.Neos:NodeUri {
+            node = ${documentNode}
+        }
+        nodeType = ${q(node).property('_nodeType.name')}
+
+        content = Neos.Fusion:Map {
+            items = ${q(node).children('main').children()}
+            itemName = 'item'
+            itemRenderer = Neos.Fusion:Case {
+                jsonView {
+                    condition = Neos.Fusion:CanRender {
+                        type = ${q(item).property('_nodeType.name') + '.Json'}
+                    }
+                    type = ${q(item).property('_nodeType.name') + '.Json'}
+                    @context.node = ${item}
+                }
+                defaultView {
+                    condition = true
+                    type = 'NeosExampleJsonApi.Site:DefaultView.Json'
+                    @context.node = ${item}
+                }
+            }
+        }
+
+        childPages = Neos.Fusion:Map {
+            items = ${q(documentNode).children('[instanceof NeosExampleJsonApi.Site:Document.Page]')}
+            itemName = 'item'
+            itemRenderer = Neos.Fusion:DataStructure {
+                type = ${q(item).property('_nodeType.name')}
+                link = Neos.Neos:NodeUri {
+                    baseNodeName = 'item'
+                }
+                path = ${q(item).property('_path')}
+                title = ${q(item).property('title')}
+
+                content = Neos.Fusion:Map {
+                    items = ${q(item).children('main').children()}
+                    itemName = 'item'
+                    itemRenderer = Neos.Fusion:Case {
+                        jsonView {
+                            condition = Neos.Fusion:CanRender {
+                                type = ${q(item).property('_nodeType.name') + '.Json'}
+                            }
+                            type = ${q(item).property('_nodeType.name') + '.Json'}
+                            @context.node = ${item}
+                        }
+                        defaultView {
+                            condition = true
+                            type = 'NeosExampleJsonApi.Site:DefaultView.Json'
+                            @context.node = ${item}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @process.stringify = ${Json.stringify(value)}
+
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}
