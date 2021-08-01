@@ -1,6 +1,3 @@
-prototype(NeosExampleJsonApi.Site:Content.Headline.Json) < prototype(Neos.Neos:ContentComponent) {
-    renderer = Neos.Fusion:DataStructure {
-        nodeType = ${q(node).property('_nodeType.name')}
-        title = ${q(node).property('title')}
-    }
+prototype(NeosExampleJsonApi.Site:Content.Headline.Json) < prototype(NeosExampleJsonApi.Site:DefaultView.Json) {
+    title = ${q(node).property('title')}
 }

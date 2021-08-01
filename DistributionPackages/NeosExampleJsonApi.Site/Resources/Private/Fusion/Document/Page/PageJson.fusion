@@ -1,62 +1,36 @@
 prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Component) {
-    renderer = Neos.Fusion:DataStructure {
-        nodeId = ${node.identifier}
-        nodePath = ${q(node).property('_path')}
+    renderer = NeosExampleJsonApi.Site:DefaultView.Json {
+
+        nodeTitle = ${q(node).property('title')}
         nodeUri = Neos.Neos:NodeUri {
-            node = ${documentNode}
+            node = ${node}
         }
-        nodeType = ${q(node).property('_nodeType.name')}
+        nodePath = ${q(node).property('_path')}
 
-        content = Neos.Fusion:Map {
-            items = ${q(node).children('main').children()}
-            itemName = 'item'
-            itemRenderer = Neos.Fusion:Case {
-                jsonView {
-                    condition = Neos.Fusion:CanRender {
-                        type = ${q(item).property('_nodeType.name') + '.Json'}
-                    }
-                    type = ${q(item).property('_nodeType.name') + '.Json'}
-                    @context.node = ${item}
-                }
-                defaultView {
-                    condition = true
-                    type = 'NeosExampleJsonApi.Site:DefaultView.Json'
-                    @context.node = ${item}
-                }
-            }
+
+        content = NeosExampleJsonApi.Site:ContentCollectionJson {
+            nodePath = 'main'
         }
 
+        # TODO: Make recursive instead of 1 Level childpages.
+        # @process.stringify is only allowed on entry page.
         childPages = Neos.Fusion:Map {
-            items = ${q(documentNode).children('[instanceof NeosExampleJsonApi.Site:Document.Page]')}
-            itemName = 'item'
-            itemRenderer = Neos.Fusion:DataStructure {
-                type = ${q(item).property('_nodeType.name')}
-                link = Neos.Neos:NodeUri {
-                    baseNodeName = 'item'
-                }
-                path = ${q(item).property('_path')}
-                title = ${q(item).property('title')}
+            items = ${q(node).children('[instanceof Neos.Neos:Document]')}
+            itemName = 'node'
+            itemRenderer = NeosExampleJsonApi.Site:DefaultView.Json {
 
-                content = Neos.Fusion:Map {
-                    items = ${q(item).children('main').children()}
-                    itemName = 'item'
-                    itemRenderer = Neos.Fusion:Case {
-                        jsonView {
-                            condition = Neos.Fusion:CanRender {
-                                type = ${q(item).property('_nodeType.name') + '.Json'}
-                            }
-                            type = ${q(item).property('_nodeType.name') + '.Json'}
-                            @context.node = ${item}
-                        }
-                        defaultView {
-                            condition = true
-                            type = 'NeosExampleJsonApi.Site:DefaultView.Json'
-                            @context.node = ${item}
-                        }
-                    }
+                nodeTitle = ${q(node).property('title')}
+                nodeUri = Neos.Neos:NodeUri {
+                    node = ${node}
                 }
-            }
+                nodePath = ${q(node).property('_path')}
+
+                content = NeosExampleJsonApi.Site:ContentCollectionJson {
+                    nodePath = 'main'
+                }
+
         }
+
     }
 
     @process.stringify = ${Json.stringify(value)}
