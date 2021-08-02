@@ -1,0 +1,24 @@
+prototype(NeosExampleJsonApi.Site:ContentCollectionJson) < prototype(Neos.Fusion:Map) {
+
+    nodePath = 'to-be-set-by-user'
+
+    // Neos.Node.nearestContentCollection:
+    // Check if the given node is already a collection, find collection by nodePath otherwise,
+    // throw exception if no content collection could be found
+    @context.node = ${Neos.Node.nearestContentCollection(node, this.nodePath)}
+
+    items = ${q(node).children()}
+    itemName = 'node'
+    itemRenderer = Neos.Fusion:Case {
+        explicitJsonView {
+            condition = Neos.Fusion:CanRender {
+                type = ${q(node).property('_nodeType.name') + '.Json'}
+            }
+            type = ${q(node).property('_nodeType.name') + '.Json'}
+        }
+        defaultJsonView {
+            condition = true
+            type = 'NeosExampleJsonApi.Site:DefaultView.Json'
+        }
+    }
+}
