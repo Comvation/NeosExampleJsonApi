@@ -19,6 +19,13 @@ docker-compose up -d --build
 Docker Compose will load automatically a database dump, so the system is ready without the need to execute
 the Neos setup again.
 
+To login to the Neos Admin Backend use the following credentials:
+
+```
+User: admin
+Password: admin1234
+```
+
 ## Access the JSON
 
 Execute in browser:
