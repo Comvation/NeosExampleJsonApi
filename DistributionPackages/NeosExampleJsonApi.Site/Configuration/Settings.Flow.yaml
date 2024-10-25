@@ -1,0 +1,21 @@
+Neos:
+  Flow:
+    persistence:
+      # Default settings for local development
+      # Never store db credentials for production environment!
+      # Create the production settings file directly on the server once.
+      backendOptions:
+        dbname: neos_dev
+        user: root
+        password: db
+        host: db
+        port: 3306
+        driver: pdo_mysql
+    mvc:
+      routes:
+        'NeosExampleJsonApi.Site':
+          position: 'before Neos.Neos'
+        'Neos.Neos':
+          variables:
+            # We prefer URLs without the ".html" suffix
+            defaultUriSuffix: ''

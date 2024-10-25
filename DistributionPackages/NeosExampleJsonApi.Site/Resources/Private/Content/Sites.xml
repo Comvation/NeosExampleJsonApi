@@ -6,8 +6,8 @@
     <variant sortingIndex="100" workspace="live" nodeType="NeosExampleJsonApi.Site:Document.HomePage" version="1" removed="" hidden="" hiddenInIndex="">
      <dimensions/>
      <accessRoles __type="array"/>
-     <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</creationDateTime>
-     <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</lastModificationDateTime>
+     <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+00:00</creationDateTime>
+     <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+00:00</lastModificationDateTime>
      <properties>
       <title __type="string">Home</title>
       <uriPathSegment __type="string">home</uriPathSegment>
@@ -17,10 +17,65 @@
      <variant sortingIndex="100" workspace="live" nodeType="Neos.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
       <dimensions/>
       <accessRoles __type="array"/>
-      <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</creationDateTime>
-      <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+02:00</lastModificationDateTime>
+      <creationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+00:00</creationDateTime>
+      <lastModificationDateTime __type="object" __classname="DateTime">2018-06-26T23:20:17+00:00</lastModificationDateTime>
       <properties/>
      </variant>
+    </node>
+    <node identifier="3f8e6977-23e4-4b01-8237-6bc6f077d58e" nodeName="node-53p33mwq2l967">
+     <variant sortingIndex="200" workspace="live" nodeType="NeosExampleJsonApi.Site:Document.Page" version="2" removed="" hidden="" hiddenInIndex="">
+      <dimensions>
+       <language>en</language>
+      </dimensions>
+      <accessRoles __type="array"/>
+      <creationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:08+00:00</creationDateTime>
+      <lastModificationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastModificationDateTime>
+      <lastPublicationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastPublicationDateTime>
+      <properties>
+       <uriPathSegment __type="string">testpage1</uriPathSegment>
+       <title __type="string">testpage1</title>
+      </properties>
+     </variant>
+     <node identifier="5193b3d7-8375-c6cc-1510-c17e47447950" nodeName="main">
+      <variant sortingIndex="100" workspace="live" nodeType="Neos.Neos:ContentCollection" version="2" removed="" hidden="" hiddenInIndex="">
+       <dimensions>
+        <language>en</language>
+       </dimensions>
+       <accessRoles __type="array"/>
+       <creationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:08+00:00</creationDateTime>
+       <lastModificationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastModificationDateTime>
+       <lastPublicationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastPublicationDateTime>
+       <properties/>
+      </variant>
+      <node identifier="369839a5-5ab5-45b0-a5a3-ef4e72957aa3" nodeName="node-m7j5007fg6uby">
+       <variant sortingIndex="100" workspace="live" nodeType="NeosExampleJsonApi.Site:Content.Text" version="3" removed="" hidden="" hiddenInIndex="">
+        <dimensions>
+         <language>en</language>
+        </dimensions>
+        <accessRoles __type="array"/>
+        <creationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:12+00:00</creationDateTime>
+        <lastModificationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastModificationDateTime>
+        <lastPublicationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastPublicationDateTime>
+        <properties>
+         <text __type="string">&lt;p&gt;my text lorem ipsum&lt;/p&gt;</text>
+        </properties>
+       </variant>
+      </node>
+      <node identifier="accaab62-d2dc-430c-a0e9-65f3d6b87149" nodeName="node-zmo0dw27lh9v4">
+       <variant sortingIndex="50" workspace="live" nodeType="NeosExampleJsonApi.Site:Content.Headline" version="4" removed="" hidden="" hiddenInIndex="">
+        <dimensions>
+         <language>en</language>
+        </dimensions>
+        <accessRoles __type="array"/>
+        <creationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:17+00:00</creationDateTime>
+        <lastModificationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastModificationDateTime>
+        <lastPublicationDateTime __type="object" __classname="DateTime">2024-10-25T13:27:35+00:00</lastPublicationDateTime>
+        <properties>
+         <title __type="string">Headline 1</title>
+        </properties>
+       </variant>
+      </node>
+     </node>
     </node>
    </node>
   </nodes>

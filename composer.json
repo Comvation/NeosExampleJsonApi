@@ -1,15 +1,18 @@
 {
-  "name": "comvation/site-skeleton-template",
-  "description": "Best practice skeleton for Neos based on CodeQ.Site package.",
+  "name": "comvation/neos-example-json-api-distribution",
+  "description": "Neos JSON API site example distribution",
   "config": {
     "vendor-dir": "Packages/Libraries",
     "bin-dir": "bin",
     "platform": {
-      "php": "7.4"
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "neos/composer-plugin": true
     }
   },
   "require": {
-    "neosexamplejsonapi/site": "dev-master"
+    "neosexamplejsonapi/site": "@dev"
   },
   "repositories": {
     "distribution": {

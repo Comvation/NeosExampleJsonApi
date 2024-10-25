@@ -1,0 +1,29 @@
+Neos:
+  Neos:
+    eventLog:
+      enabled: true
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          # number of levels inside the node tree which shall be loaded eagerly, at start.
+          # if you have lots of nodes you should maybe reduce this number of elements.
+          loadingDepth: 2
+        structureTree:
+          loadingDepth: 2
+    fusion:
+      autoInclude:
+        NeosExampleJsonApi.Site: true
+    # nodeTypes:
+    #   groups:
+    #     contentBlocks:
+    #       position: 110
+    #       label: 'Content Blocks'
+    Ui:
+      frontendConfiguration:
+        hotkeys: ~
+      initialState:
+        ui:
+          leftSideBar:
+            contentTree:
+              # by default in the Neos UI open the content tree
+              isHidden: false

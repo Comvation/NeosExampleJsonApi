@@ -16,6 +16,5 @@ prototype(NeosExampleJsonApi.Site:Document.AbstractPage) < prototype(Neos.Neos:P
     }
     body = NeosExampleJsonApi.Site:Component.DefaultLayout {
         content = ''
-        @process.normalize = CodeQ.UnicodeNormalizer:Normalizer
     }
 }
