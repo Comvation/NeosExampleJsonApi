@@ -4,7 +4,6 @@ json = Neos.Fusion:Http.Message {
     }
 
     nodeTypeCase = Neos.Fusion:Renderer {
-        type = ${q(node).property('_nodeType.name') + '.Json'}
+        type = ${node.nodeType.name + '.Json'}
     }
-
 }

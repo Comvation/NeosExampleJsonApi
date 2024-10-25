@@ -1,6 +1,6 @@
 prototype(NeosExampleJsonApi.Site:DefaultView.Json) < prototype(Neos.Fusion:DataStructure) {
     nodeId = ${node.identifier}
     nodeId.@position = "start 100"
-    nodeType = ${q(node).property('_nodeType.name')}
+    nodeType = ${node.nodeType.name}
     nodeType.@position = "start 50"
 }

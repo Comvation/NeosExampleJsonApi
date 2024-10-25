@@ -4,7 +4,7 @@ prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Co
         nodeUri = Neos.Neos:NodeUri {
             node = ${node}
         }
-        nodePath = ${q(node).property('_path')}
+        nodePath = ${node.path}
 
         content = NeosExampleJsonApi.Site:ContentCollectionJson {
             nodePath = 'main'
@@ -20,7 +20,7 @@ prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Co
                 nodeUri = Neos.Neos:NodeUri {
                     node = ${node}
                 }
-                nodePath = ${q(node).property('_path')}
+                nodePath = ${node.path}
                 content = NeosExampleJsonApi.Site:ContentCollectionJson {
                     nodePath = 'main'
                 }
@@ -31,10 +31,13 @@ prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Co
     @process.stringify = ${Json.stringify(value)}
 
     @cache {
-        mode = 'uncached'
-        context {
-            1 = 'node'
-            2 = 'documentNode'
+        mode = 'cached'
+        entryIdentifier {
+            node = ${node}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
+            2 = ${Neos.Caching.descendantOfTag(node)}
         }
     }
 }
