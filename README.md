@@ -1,22 +1,20 @@
 # Neos Example Json API
 
 This site package demonstrates how to implement a simple JSON output for the pages and its content.
-Currently it is just restricted to render the current page node including its children pages with its content.
+Currently, it is just restricted to render the current page node including its children pages with its content.
 
 ## Requirements
 
-* PHP > 7.x including extension `intl`
-* Composer > 2.x
-* NodeJS 16+
+* [DDEV](https://ddev.readthedocs.io)
+
 
 ## Setup
 
-```
-composer install
-docker-compose up -d --build
-```
+Run in the root directory:
 
-Docker Compose will load automatically a database dump, so the system is ready without the need to execute
+    ddev start
+
+DDEV will execute `composer install` and will also load some test database dump, so the system is ready without the need to execute
 the Neos setup again.
 
 To login to the Neos Admin Backend use the following credentials:
@@ -28,10 +26,10 @@ Password: admin1234
 
 ## Access the JSON
 
-Execute in browser:
+Execute in your browser:
 
 ```
-http://localhost:8081/testpage.json
+https://neos-example-json-api.ddev.site/testpage1.json
 ```
 
 

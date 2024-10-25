@@ -1,12 +1,10 @@
 prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Component) {
     renderer = NeosExampleJsonApi.Site:DefaultView.Json {
-
         nodeTitle = ${q(node).property('title')}
         nodeUri = Neos.Neos:NodeUri {
             node = ${node}
         }
         nodePath = ${q(node).property('_path')}
-
 
         content = NeosExampleJsonApi.Site:ContentCollectionJson {
             nodePath = 'main'
@@ -18,19 +16,16 @@ prototype(NeosExampleJsonApi.Site:Document.Page.Json) < prototype(Neos.Fusion:Co
             items = ${q(node).children('[instanceof Neos.Neos:Document]')}
             itemName = 'node'
             itemRenderer = NeosExampleJsonApi.Site:DefaultView.Json {
-
                 nodeTitle = ${q(node).property('title')}
                 nodeUri = Neos.Neos:NodeUri {
                     node = ${node}
                 }
                 nodePath = ${q(node).property('_path')}
-
                 content = NeosExampleJsonApi.Site:ContentCollectionJson {
                     nodePath = 'main'
                 }
-
+            }
         }
-
     }
 
     @process.stringify = ${Json.stringify(value)}
